@@ -1,11 +1,11 @@
 # OpenWA Deployment
 
-Simplified OpenWA deployment for Render and other cloud platforms.
+Simplified OpenWA deployment using the official image.
 
-## 🚀 Render Deployment (One-Click)
+## 🚀 Render Deployment
 
 1. **Create Web Service** on Render
-2. **Connect this repository** (https://github.com/tirthachetry-zoho/openwa)
+2. **Image**: Use `openwa/wa-automate:latest` (public Docker image)
 3. **Set Environment Variables**:
    ```
    PORT=3000
@@ -14,7 +14,7 @@ Simplified OpenWA deployment for Render and other cloud platforms.
    WHATSAPP_API_KEY=your-api-key
    SESSION_NAME=kissan-assistant
    ```
-4. **Deploy** - Render will automatically build and deploy
+4. **Deploy**
 
 ## 🔧 Environment Variables
 
@@ -25,12 +25,6 @@ Simplified OpenWA deployment for Render and other cloud platforms.
 | `WHATSAPP_HOOK_SECRET` | HMAC secret for webhooks | Yes |
 | `WHATSAPP_API_KEY` | API key for authentication | Yes |
 | `SESSION_NAME` | WhatsApp session name | No (default: default-session) |
-
-## 📝 Notes
-
-- Uses official `openwa/wa-automate:latest` image
-- No custom dependencies or complex setup
-- Health check: `http://localhost:3000/health`
 
 ## ⚠️ Important
 
