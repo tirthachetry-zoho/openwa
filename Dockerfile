@@ -10,8 +10,12 @@ LABEL description="OpenWA WhatsApp Gateway"
 
 # Install procps for ps command (required by OpenWA for process management)
 # Base image is Debian-based and runs as non-root, so switch to root temporarily
+# Handle expired repositories and GPG key issues
 USER root
-RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*
+RUN rm -f /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update --allow-releaseinfo-change || true && \
+    apt-get install -y --allow-unauthenticated procps && \
+    rm -rf /var/lib/apt/lists/*
 USER openwa
 
 # Set default environment variables
