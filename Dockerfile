@@ -9,8 +9,10 @@ LABEL maintainer="tirthachetry-zoho"
 LABEL description="OpenWA WhatsApp Gateway"
 
 # Install procps for ps command (required by OpenWA for process management)
-# Base image is Debian-based, so use apt-get
+# Base image is Debian-based and runs as non-root, so switch to root temporarily
+USER root
 RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*
+USER openwa
 
 # Set default environment variables
 ENV PORT=3000
