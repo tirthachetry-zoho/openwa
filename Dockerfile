@@ -8,6 +8,9 @@ FROM openwa/wa-automate:latest
 LABEL maintainer="tirthachetry-zoho"
 LABEL description="OpenWA WhatsApp Gateway"
 
+# Install procps for ps command (required by OpenWA for process management)
+RUN apk add --no-cache procps
+
 # Set default environment variables
 ENV PORT=3000
 ENV WHATSAPP_HOOK_URL=""
