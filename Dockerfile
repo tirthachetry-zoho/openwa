@@ -16,8 +16,8 @@ ENV WHATSAPP_API_KEY=""
 ENV SESSION_NAME="default-session"
 ENV WHATSAPP_AUTO_REGISTER_WEBHOOK="false"
 
-# Create directory for sessions
-RUN mkdir -p /app/.sessions
+# The base image already creates /app/.sessions and handles permissions
+# No need to create it here
 
 # Expose the default port
 EXPOSE 3000
